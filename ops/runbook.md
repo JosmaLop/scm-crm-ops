@@ -1,0 +1,1 @@
+# Runbook de Despliegue - Pasos para levantar entorno: 1. docker-compose up -d
