@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  api:
+    build: ./api
+    ports:
+      - "5000:5000"
+    environment:
+      - ENV=dev
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASS=admin # Simulación de variable protegida
+  
+  db:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=crm_importaciones
+    volumes:
+      - ./db/script_db.sql:/docker-entrypoint-initdb.d/script_db.sql
